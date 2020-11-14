@@ -1,5 +1,43 @@
 # ClientWebsite
+---
+## Configure angular server to serve its content over Https
+- add Certificate ``server.crt`` and ``server.key `` in **ssl** folder in side the Angular project
 
+*note: this Certificate existing in **StudentAssets** folder* 
+
+**Follow the next procedures:**
+```
+Windows 10
+	1. Double click on the certificate (server.crt)
+	2. Click on the button “Install Certificate …”
+	3. Select whether you want to store it on user level or on machine level
+	4. Click “Next”
+	5. Select “Place all certificates in the following store”
+	6. Click “Browse”
+	7. Select “Trusted Root Certification Authorities”
+	8. Click “Ok”
+	9. Click “Next”
+	10. Click “Finish”
+```
+- inside ``angular.json`` in **serve** section add:
+```
+"sslKey": "ssl/server.key",
+"sslCert": "ssl/server.crt",
+"ssl": true
+```
+---
+## START WITH ANGULAR
+- install Nodejs (JavaScript engine)
+    - npm
+- install Angular CLI [Link](https://cli.angular.io/)
+```
+> npm install -g @angular/cli
+```
+- Create new Angular Project, with routing in Application, SCSS 
+```
+root> ng new <name>
+```
+---
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
 
 ## Development server
