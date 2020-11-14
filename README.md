@@ -1,5 +1,23 @@
 # ClientWebsite
 ---
+## Adding ngx-bootstrap and font-awesome
+**install ngx-bootstrap [Link](https://valor-software.com/ngx-bootstrap/#/) in project root**
+```
+> npm install ngx-bootstrap --save
+> ng add ngx-bootstrap 
+```
+*note: after add it, it will update ``angular.jsom`` file with location of **CSS** that come with, and add in ``app.module.ts`` **BrowserAnimationsModule**, and it does not matter if display some warning*
+
+**install font-awesome**
+```
+> npm install font-awesome
+```
+
+*it does not matter if display some warning, and need to add the style sheets manually for this one inside ``angular.json`` in all **style** section:*
+```
+./node_modules/font-awesome/css/font-awesome.min.css
+```
+---
 ## Configure angular server to serve its content over Https
 - add Certificate ``server.crt`` and ``server.key `` in **ssl** folder in side the Angular project
 
