@@ -1,5 +1,19 @@
 # ClientWebsite
 ---
+## add Home Component & module, export home and blog component
+```
+app> ng g m home
+
+\app\home> ng g c --flat --skip-tests
+```
+- **export** ``HomeComponent``
+- import ``HomeModule`` inside ``app.module.ts``
+and
+- **export** ``BlogComponent``
+- import ``BlogModule`` inside ``app.module.ts``
+
+
+---
 ## create nav-bare
 ```
 app\core> ng g c nav-bar --skip-tests
