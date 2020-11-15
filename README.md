@@ -1,5 +1,9 @@
 # ClientWebsite
 ---
+## in nav-bar add router link for pages
+after add ``[routerLink]="['/']"`` we need to import ``RouterModule`` inside ``core.module``
+
+---
 ## add Home Component & module, export home and blog component
 ```
 app> ng g m home
