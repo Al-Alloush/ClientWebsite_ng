@@ -1,5 +1,30 @@
 # ClientWebsite
 ---
+## start with creating a structure like: Files and folders 
+- ``g`` = Generate
+- ``m`` = Module
+- ``c`` = Component
+- ``--flat`` = to Genereate the element inside current folder
+- ``--skip-tests`` = to not create extra Test component file
+
+### Generate core Module. this module is for singltons in Application like nav-bar
+``` 
+\src\app> ng g m core 
+```
+
+### Generate blog Module. this module is for blog components, then create a blog component
+``` 
+\src\app> ng g m blog 
+
+\src\app\blog> ng g c blog --flat --skip-tests
+```
+
+### Generate shared Module. this module is for shared component
+``` 
+\src\app> ng g m shared 
+```
+
+---
 ## Adding ngx-bootstrap and font-awesome
 **install ngx-bootstrap [Link](https://valor-software.com/ngx-bootstrap/#/) in project root**
 ```
