@@ -1,5 +1,12 @@
 # ClientWebsite
 ---
+## create nav-bare
+```
+app\core> ng g c nav-bar --skip-tests
+```
+
+
+---
 ## start with creating a structure like: Files and folders 
 - ``g`` = Generate
 - ``m`` = Module
