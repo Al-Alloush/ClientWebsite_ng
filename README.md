@@ -1,9 +1,14 @@
 # ClientWebsite
 ---
-## import HttpClientModule, get data from API and display them
+## add new **service** to import HttpClientModule instead of ``blog.component``, get data from API and display them
 - import ``HttpClientModule`` in ``blog.module`` to available to use in ``blog.component`` after inject this service in component
 - get data from API then display them in Blog page
 - create an interface for Blogs
+- add service to import ``HttpClientModule`` inside it and remove it from ``blog.module``:
+```
+app\blog> ng g s blog --skip-tests
+```
+
 ---
 ## in nav-bar add router link for pages
 after add ``[routerLink]="['/']"`` we need to import ``RouterModule`` inside ``core.module``
