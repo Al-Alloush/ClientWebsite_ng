@@ -1,1 +1,8 @@
-<p>blog works!</p>
+<div class="container-fluid">
+    <h1>Welcome in {{title}} page</h1>
+    <ul>
+        <li class="list-unstyled" *ngFor="let item of blogs">
+            {{item.title_L1}}
+        </li>
+    </ul>
+</div>

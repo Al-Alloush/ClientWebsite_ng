@@ -1,5 +1,10 @@
 # ClientWebsite
 ---
+## import HttpClientModule, get data from API and display them
+- import ``HttpClientModule`` in ``blog.module`` to available to use in ``blog.component`` after inject this service in component
+- get data from API then display them in Blog page
+-
+---
 ## in nav-bar add router link for pages
 after add ``[routerLink]="['/']"`` we need to import ``RouterModule`` inside ``core.module``
 
