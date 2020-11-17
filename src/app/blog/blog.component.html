@@ -1,8 +1,42 @@
 <div class="container-fluid">
-    <h1>Welcome in {{title}} page</h1>
-    <ul>
-        <li class="list-unstyled" *ngFor="let item of blogs">
-            {{item.title_L1}}
-        </li>
-    </ul>
+    <h2>Welcome in {{title}} page</h2>
+    <hr>
+    <div class="row">
+        <!--Categories and blog sort-->
+        <section class="col-md-3 col-12">
+            <h5 class="text-danger ml-3">Sort</h5>
+            <select name="" id="" class="custom-select mb-5">
+                <option selected>New</option>
+                <option>Alphabet</option>
+            </select>
+
+            <h5 class="text-danger text-center">Categories</h5>
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active"> Cras justo odio </a>
+                <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+            </div>
+        </section>
+        <section class="col-md-9 col-12">
+            <!-- Results of pages and search -->
+            <div class="d-flex justify-content-between align-items-center pb-1">
+                <header>
+                    <span> Showing <strong>10</strong> of <strong>50</strong> Results</span>
+                </header>
+                <div class="form-inline mt-2">
+                    <input type="text" class="form-control" type="text">
+                    <button class="btn btn-outline-primary my-2 mr-2 ml-2"> Search</button>
+                    <button class="btn btn-outline-success my-2"> Reset</button>
+                </div>
+            </div>
+            <!-- Blog lists -->
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12"  *ngFor="let item of blogs">
+                    <app-blog-item></app-blog-item>
+                </div>
+            </div>
+        </section>
+    </div>
 </div>

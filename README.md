@@ -1,5 +1,11 @@
 # ClientWebsite
 ---
+## Designing the Blog page and create Blog's item.component
+```
+app\blog> ng g c blog-item --skip-tests
+```
+
+---
 ## add new **service** to import HttpClientModule instead of ``blog.component``, get data from API and display them
 - import ``HttpClientModule`` in ``blog.module`` to available to use in ``blog.component`` after inject this service in component
 - get data from API then display them in Blog page
