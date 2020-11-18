@@ -4,6 +4,7 @@
 ```
 app\blog> ng g c blog-item --skip-tests
 ```
+- pass the blog down to Blog child component ``blog-item.component``
 
 ---
 ## add new **service** to import HttpClientModule instead of ``blog.component``, get data from API and display them
