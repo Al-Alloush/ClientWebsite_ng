@@ -1,0 +1,28 @@
+
+<div class="card mb-4 box-shadow"  style="max-width:350px; min-width:250px" >
+    <div style="height:400px">
+        <a href="#" style="text-decoration:none;color: inherit">
+            <img class="card-img-top img-fluid"
+                data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                alt="img"
+                src="{{imgPath}}"
+                data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+            <div class="card-body">
+                <h5 class="truncate" title="{{blog.title}}">{{blog.title}}</h5>
+                <p class="card-text content">{{blog.description}}</p>
+            </div>
+        </a>
+    </div>
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center ">
+            <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary mr-3" title="Like"> <i
+                        class="fa fa-thumbs-up mr-2"></i> {{blog.likesCount}}</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" title="Dislike"> <i
+                        class="fa fa-thumbs-down mr-2"></i>{{blog.dislikesCount}}</button>
+            </div>
+            <small class="text-muted pl-2">{{blog.commentsCount}} Comments</small>
+        </div>
+    </div>
+</div>
+

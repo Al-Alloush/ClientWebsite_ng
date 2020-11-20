@@ -1,5 +1,76 @@
 # ClientWebsite
 ---
+## Sorting the Blogs
+---
+## add filter by category
+---
+## Designing the Blog page and create Blog's item.component
+```
+app\blog> ng g c blog-item --skip-tests
+```
+- pass the blog down to Blog child component ``blog-item.component``
+
+---
+## add new **service** to import HttpClientModule instead of ``blog.component``, get data from API and display them
+- import ``HttpClientModule`` in ``blog.module`` to available to use in ``blog.component`` after inject this service in component
+- get data from API then display them in Blog page
+- create an interface for Blogs
+- add service to import ``HttpClientModule`` inside it and remove it from ``blog.module``:
+```
+app\blog> ng g s blog --skip-tests
+```
+
+---
+## in nav-bar add router link for pages
+after add ``[routerLink]="['/']"`` we need to import ``RouterModule`` inside ``core.module``
+
+---
+## add Home Component & module, export home and blog component
+```
+app> ng g m home
+
+\app\home> ng g c --flat --skip-tests
+```
+- **export** ``HomeComponent``
+- import ``HomeModule`` inside ``app.module.ts``
+and
+- **export** ``BlogComponent``
+- import ``BlogModule`` inside ``app.module.ts``
+
+
+---
+## create nav-bare
+```
+app\core> ng g c nav-bar --skip-tests
+```
+
+
+---
+## start with creating a structure like: Files and folders 
+- ``g`` = Generate
+- ``m`` = Module
+- ``c`` = Component
+- ``--flat`` = to Genereate the element inside current folder
+- ``--skip-tests`` = to not create extra Test component file
+
+### Generate core Module. this module is for singltons in Application like nav-bar
+``` 
+\src\app> ng g m core 
+```
+
+### Generate blog Module. this module is for blog components, then create a blog component
+``` 
+\src\app> ng g m blog 
+
+\src\app\blog> ng g c blog --flat --skip-tests
+```
+
+### Generate shared Module. this module is for shared component
+``` 
+\src\app> ng g m shared 
+```
+
+---
 ## Adding ngx-bootstrap and font-awesome
 **install ngx-bootstrap [Link](https://valor-software.com/ngx-bootstrap/#/) in project root**
 ```
