@@ -5,7 +5,7 @@
         <!--Categories and blog sort-->
         <section class="col-md-3 col-12">
             <h5 class="text-danger ml-3 text-center">Sort</h5>
-            <select name="" id="" class="custom-select mb-5" (change)="onSortSelected($event.target.value)">
+            <select name="" id="" class="custom-select mb-5" #t (change)="onSortSelected(t.value)">
                 <option *ngFor="let item of sortOptions" [value]="item.value">  
                     {{item.name}}
                 </option>
