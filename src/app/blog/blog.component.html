@@ -12,7 +12,9 @@
 
             <h5 class="text-danger text-center">Categories</h5>
             <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action" *ngFor="let item of category">
+                <a class="list-group-item list-group-item-action" *ngFor="let item of category"
+                                                                [class.active]="item.id === this.categoryIdSelected"
+                                                                (click)="onCategorySelected(item.id)" >
                     {{item.name}}
                 </a>
             </div>

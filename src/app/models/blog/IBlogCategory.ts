@@ -1,4 +1,4 @@
 export interface IBlogCategory {
-    categoryId: number;
+    id: number;
     name: string;
 }

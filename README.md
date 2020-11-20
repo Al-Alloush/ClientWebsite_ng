@@ -1,5 +1,7 @@
 # ClientWebsite
 ---
+## add filter by category
+---
 ## Designing the Blog page and create Blog's item.component
 ```
 app\blog> ng g c blog-item --skip-tests
