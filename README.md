@@ -1,5 +1,7 @@
 # ClientWebsite
 ---
+## Sorting the Blogs
+---
 ## add filter by category
 ---
 ## Designing the Blog page and create Blog's item.component

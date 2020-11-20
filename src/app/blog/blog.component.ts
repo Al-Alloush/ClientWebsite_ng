@@ -13,6 +13,13 @@ export class BlogComponent implements OnInit {
   blogs: IBlog[] = [];
   category!: IBlogCategory[];
   categoryIdSelected = 0;
+  sotrtSelected = 'dateDesc';
+  sortOptions = [
+    {name: 'New', value : 'dateDesc'},
+    {name: 'Old', value : 'dateAsc'},
+    {name: 'Alphabetical (A-Z)', value : 'titleAsc'},
+    {name: 'Alphabetical (Z-A)', value : 'titleDesc'}
+  ];
 
   constructor(private blogService: BlogService) { }
 
@@ -25,7 +32,7 @@ export class BlogComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   getBlog() {
-    this.blogService.getBlog(this.categoryIdSelected).subscribe(
+    this.blogService.getBlog(this.categoryIdSelected, this.sotrtSelected).subscribe(
       response => {
         // tslint:disable-next-line: no-non-null-assertion
         this.blogs = response!.data;
@@ -51,6 +58,12 @@ export class BlogComponent implements OnInit {
   // tslint:disable-next-line: typedef
   onCategorySelected(categoryId: number){
     this.categoryIdSelected = categoryId;
+    this.getBlog();
+  }
+
+  // tslint:disable-next-line: typedef
+  onSortSelected(sort: string){
+    this.sotrtSelected = sort;
     this.getBlog();
   }
 
