@@ -3,19 +3,16 @@ import { IBlogComment } from './IBlogComment';
 import { IBlogImage } from './IBlogImage';
 
 export interface IBlog {
-    title_L2: string;
-    description_L2: string;
-    body_L2: string;
-    title_L1: string;
-    description_L1: string;
-    body_L1: string;
+    title: string;
+    description: string;
+    body: string;
     id: number;
     display: boolean;
     displayDate: string;
     commentable: boolean;
     atTop: boolean;
-    blogCategoryId: number;
-    blogCategory: IBlogCategory;
+    atTopEndDate: string;
+    blogCategories: IBlogCategory[];
     addedDateTime: string;
     blogImages: IBlogImage[];
     commentsCount: number;
