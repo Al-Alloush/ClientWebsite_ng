@@ -43,7 +43,10 @@ export class BlogService {
                                         /*inside this pipe we can chain as many our exchange operators as we want inside this request */
                                         // delay(1000),
                                         map( response => {
-                                          return response.body;
+                                          if (response.status != null){
+                                            return response.body;
+                                          }
+                                          return null;
                                         })
                                       );
   }

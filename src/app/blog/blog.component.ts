@@ -39,12 +39,16 @@ export class BlogComponent implements OnInit {
     this.blogService.getBlog(this.categoryIdSelected, this.sotrtSelected, this.pageIndex, this.pageSize ).subscribe(
       response => {
         // tslint:disable-next-line: no-non-null-assertion
-        this.blogs = response!.data;
-        this.pageIndex = response!.pageIndex;
-        this.pageSize = response!.pageSize;
-        this.totalBlogs = response!.count;
-        this.culculatePagesNumbers();
-        console.log(response);
+        if (response != null){
+          this.blogs = response.data;
+          this.pageIndex = response.pageIndex;
+          this.pageSize = response.pageSize;
+          this.totalBlogs = response.count;
+          this.culculatePagesNumbers();
+        }else{
+          this.blogs = [];
+          // console.log(response);
+        }
       }, error => {
           console.log(error);
       }
