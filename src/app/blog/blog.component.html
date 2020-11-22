@@ -5,8 +5,9 @@
         <!--Categories and blog sort-->
         <section class="col-md-3 col-12">
             <h5 class="text-danger ml-3 text-center">Sort</h5>
-            <select name="" id="" class="custom-select mb-5" (change)="onSortSelected($event.target.value)">
-                <option *ngFor="let item of sortOptions" [value]="item.value">  
+            <select name="" id="" class="custom-select mb-5" #event_target
+                (change)="onSortSelected(event_target.value)">
+                <option *ngFor="let item of sortOptions" [value]="item.value">
                     {{item.name}}
                 </option>
             </select>
@@ -14,27 +15,42 @@
             <h5 class="text-danger text-center">Categories</h5>
             <div class="list-group">
                 <a class="list-group-item list-group-item-action" *ngFor="let item of category"
-                                                                [class.active]="item.id === this.categoryIdSelected"
-                                                                (click)="onCategorySelected(item.id)" >
+                    [class.active]="item.id === this.categoryIdSelected" (click)="onCategorySelected(item.id)">
                     {{item.name}}
                 </a>
             </div>
         </section>
-        <section class="col-md-9 col-12">
+        <section class="col-md-9 ">
             <!-- Results of pages and search -->
-            <div class="d-flex justify-content-between align-items-center pb-1">
-                <header>
-                    <span> Showing <strong>10</strong> of <strong>50</strong> Results</span>
-                </header>
-                <div class="form-inline mt-2">
-                    <input type="text" class="form-control" type="text">
-                    <button class="btn btn-outline-primary my-2 mr-2 ml-2"> Search</button>
-                    <button class="btn btn-outline-success my-2"> Reset</button>
+            <div class="row">
+                <div class="form-inline mt-2 col-lg-6 col-md-12">
+                    <!--template reference variable: #search to access this inside component -->
+                    <input type="text" #search class="form-control" type="text">
+                    <button class="btn btn-outline-primary my-2 mr-2 ml-2" (click)="this.onSearch()"> Search</button>
+                    <button class="btn btn-outline-success my-2" (click)="this.onResetSearch()"> Reset</button>
                 </div>
+                <div class=" col-lg-6 col-md-12 row">
+                    <span class="col-12"  *ngIf="this.blogs.length > 0"> 
+                        Showing: <strong>{{(this.pageIndex-1) * this.pageSize+1}} - {{this.pageIndex * this.pageSize}}</strong>
+                        of <strong>{{this.totalBlogs}}</strong> Results
+                    </span>
+                    <pagination  *ngIf="this.blogs.length > 0"  class="col-12" [boundaryLinks]="true" [totalItems]="this.totalBlogs" previousText="&lsaquo;" nextText="&rsaquo;"
+                        firstText="&laquo;" lastText="&raquo;"
+                        [maxSize]="7"
+                        [firstText]="'1'"
+                        [lastText]="this.totalPages.toString()"
+                        (pageChanged)="this.onPageChange($event)">
+                    </pagination>
+                    <div class="text-center" *ngIf="this.blogs.length <= 0">
+                        <h4>
+                            There are not Result!
+                       </h4>
+                    </div>
+                </div> 
             </div>
             <!-- Blog lists -->
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12"  *ngFor="let item of blogs">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" *ngFor="let item of blogs">
                     <!--Pass blog item to chiled -->
                     <app-blog-item [blog]="item"></app-blog-item>
                 </div>

@@ -14,16 +14,23 @@ export class BlogService {
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line: typedef
-  getBlog(categoryId?: number, sort?: string){
+  getBlog(categoryId?: number, sort?: string, PageIndex?: number, pageSize?: number, search?: string){
     // create a parameter object to pass up to our API endpoint as a query string
     let params = new HttpParams();
-    params = params.append('PageSize', '20');
-    params = params.append('PageIndex', '1');
+    if (PageIndex){
+      params = params.append('pageIndex', PageIndex.toString());
+    }
+    if (pageSize){
+      params = params.append('pageSize', pageSize.toString());
+    }
     if (categoryId){
       params = params.append('categoryId', categoryId.toString());
     }
     if (sort){
       params = params.append('sort', sort);
+    }
+    if (search){
+      params = params.append('search', search);
     }
 
     /*
@@ -39,7 +46,10 @@ export class BlogService {
                                         /*inside this pipe we can chain as many our exchange operators as we want inside this request */
                                         // delay(1000),
                                         map( response => {
-                                          return response.body;
+                                          if (response.status != null){
+                                            return response.body;
+                                          }
+                                          return null;
                                         })
                                       );
   }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BlogComponent } from './blog.component';
 import {HttpClientModule} from '@angular/common/http';
 import { BlogItemComponent } from './blog-item/blog-item.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -10,7 +11,8 @@ import { BlogItemComponent } from './blog-item/blog-item.component';
   declarations: [BlogComponent, BlogItemComponent],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   exports: [BlogComponent]
 })

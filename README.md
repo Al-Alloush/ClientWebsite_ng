@@ -1,5 +1,9 @@
 # ClientWebsite
 ---
+## add Search
+---
+## add pagination ngx-bootsrap & functionality, Pagination header
+---
 ## Sorting the Blogs
 ---
 ## add filter by category
