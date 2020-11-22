@@ -14,11 +14,15 @@ export class BlogService {
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line: typedef
-  getBlog(categoryId?: number, sort?: string){
+  getBlog(categoryId?: number, sort?: string, PageIndex?: number, pageSize?: number){
     // create a parameter object to pass up to our API endpoint as a query string
     let params = new HttpParams();
-    params = params.append('PageSize', '20');
-    params = params.append('PageIndex', '1');
+    if (PageIndex){
+      params = params.append('pageIndex', PageIndex.toString());
+    }
+    if (pageSize){
+      params = params.append('pageSize', pageSize.toString());
+    }
     if (categoryId){
       params = params.append('categoryId', categoryId.toString());
     }

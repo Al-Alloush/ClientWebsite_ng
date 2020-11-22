@@ -20,6 +20,10 @@ export class BlogComponent implements OnInit {
     {name: 'Alphabetical (A-Z)', value : 'titleAsc'},
     {name: 'Alphabetical (Z-A)', value : 'titleDesc'}
   ];
+  pageIndex = 1;
+  pageSize = 10;
+  totalBlogs = 0;
+  totalPages = 1;
 
   constructor(private blogService: BlogService) { }
 
@@ -32,15 +36,28 @@ export class BlogComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   getBlog() {
-    this.blogService.getBlog(this.categoryIdSelected, this.sotrtSelected).subscribe(
+    this.blogService.getBlog(this.categoryIdSelected, this.sotrtSelected, this.pageIndex, this.pageSize ).subscribe(
       response => {
         // tslint:disable-next-line: no-non-null-assertion
         this.blogs = response!.data;
+        this.pageIndex = response!.pageIndex;
+        this.pageSize = response!.pageSize;
+        this.totalBlogs = response!.count;
+        this.culculatePagesNumbers();
         console.log(response);
       }, error => {
           console.log(error);
       }
     );
+  }
+  culculatePagesNumbers(){
+    const pagesAtSize = this.totalBlogs / this.pageSize;
+    const roundPages = Math.round(pagesAtSize);
+    if (pagesAtSize > roundPages){
+      this.totalPages = roundPages + 1;
+    }else{
+      this.totalPages = roundPages ;
+    }
   }
 
   // tslint:disable-next-line: typedef
@@ -64,6 +81,11 @@ export class BlogComponent implements OnInit {
   // tslint:disable-next-line: typedef
   onSortSelected(sort: string){
     this.sotrtSelected = sort;
+    this.getBlog();
+  }
+
+  onPageChange(event: any){
+    this.pageIndex = event.page;
     this.getBlog();
   }
 
