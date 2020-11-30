@@ -14,6 +14,7 @@ export interface IBlog {
     atTopEndDate: string;
     blogCategories: IBlogCategory[];
     addedDateTime: string;
+    defaultImage: string;
     blogImages: IBlogImage[];
     commentsCount: number;
     blogComments: IBlogComment[];
