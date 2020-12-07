@@ -46,7 +46,7 @@ export class BlogComponent implements OnInit {
           this.pageIndex = response.pageIndex;
           this.pageSize = response.pageSize;
           this.totalBlogs = response.count;
-          this.culculatePagesNumbers();
+          this.totalPages = response.pagesCount;
         }else{
           this.blogs = [];
           // console.log(response);
@@ -56,16 +56,7 @@ export class BlogComponent implements OnInit {
       }
     );
   }
-  culculatePagesNumbers(): void{
-    const pagesAtSize = this.totalBlogs / this.pageSize;
-    const roundPages = Math.round(pagesAtSize);
-    if (pagesAtSize > roundPages){
-      this.totalPages = roundPages + 1;
-    }else{
-      this.totalPages = roundPages ;
-    }
-  }
-
+  
   // tslint:disable-next-line: typedef
   getBlogCategories() {
     this.blogService.getBlogCategories().subscribe(
