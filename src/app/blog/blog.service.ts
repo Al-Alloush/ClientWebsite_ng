@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { IBlogCategory } from '../models/blog/IBlogCategory';
 import { IPagination } from '../models/blog/IPagination';
 import { delay, map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogService {
-  baseUrl = 'http://localhost:5000/api/';
+  baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
