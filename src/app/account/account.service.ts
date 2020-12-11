@@ -10,7 +10,7 @@ import { IUser } from '../models/identity/user';
 })
 export class AccountService {
   baseUrl = environment.apiUrl;
-  private currentUserSource = new BehaviorSubject(null);
+  private currentUserSource = new BehaviorSubject<any>(null);
   currentUser$ = this.currentUserSource.asObservable()
 
   constructor(private http: HttpClient) { }
@@ -21,6 +21,7 @@ export class AccountService {
       map((user: IUser) =>{
         if(user){
           localStorage.setItem('token', user.token);
+          this.currentUserSource.next(user);
         }
       })
     )
